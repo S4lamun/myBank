@@ -18,6 +18,7 @@ namespace bankproject_GUI
     
     public partial class DonateWindow : Window
     {
+
         private Account user;
 
         public DonateWindow(Account user)
@@ -29,36 +30,32 @@ namespace bankproject_GUI
 
         private void DonateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (decimal.TryParse(DonateAmountTextBox.Text, out decimal donateAmount))
+            if (decimal.TryParse(DonateAmountTextBox.Text, out decimal depositAmount))
             {
                 
-                if(donateAmount<=0)
+                if(depositAmount<=0)
                 {
                     MessageBox.Show($"The amount is invalid", "Donation Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                    user.Donate(donateAmount); 
+                    user.Deposit(depositAmount); 
                     BalanceTextBox.Text = $"{user.Balance:C}"; 
-                    MessageBox.Show($"Successfully donated {donateAmount:C}.", "Transaction Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Successfully donated {depositAmount:C}.", "Transaction Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     
                     this.DialogResult = true;
-                    this.Close(); 
-               
-               
-               
+                    this.Close();  
             }
             else
             {
                 MessageBox.Show("Invalid amount. Please enter a valid number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
+        } // Donating Amount to account's balance
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            
+        { 
             this.DialogResult = false;
             this.Close(); 
-        }
+        } // Cancel whole function if Cancel clicked
     }
 }

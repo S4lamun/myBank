@@ -1,22 +1,9 @@
 ﻿namespace bankproject;
 
-public class BankCustomer : Person, ICloneable
+public class BankCustomer : Person // Class which represents owner of Account
 {
     public BankCustomer() { }
-    public BankCustomer(string name, string surname, string pesel, EnumSex sex) : base(name, surname, pesel, sex)
-    {
-    }
 
-    public object Clone()
-    {
-        {
-            return new BankCustomer
-            {
-                name = this.name,
-                surname = this.surname,
-                Pesel = this.Pesel,
-                sex = this.sex
-            };
-        }
-    }
+    public BankCustomer(string name, string surname, string pesel, EnumSex sex) : base(name, surname, pesel, sex) { }
+
 }

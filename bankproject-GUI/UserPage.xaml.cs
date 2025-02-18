@@ -1,6 +1,7 @@
 ﻿using bankproject;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace bankproject_GUI
             this.bank = bank;
             NameBox.Text = $"{user.Owner.name} {user.Owner.surname}";
             BalanceBox.Text = $"{user.Balance:C}";
+            TransactionList.ItemsSource = user.DisplayTransactions();
             
         }
 
@@ -39,10 +41,10 @@ namespace bankproject_GUI
             WithdrawWindow withdrawWindow = new WithdrawWindow(user);
             bool? result = withdrawWindow.ShowDialog();
 
-            
             if (result == true) 
             {
                 BalanceBox.Text = $"{user.Balance:C}";
+                TransactionList.ItemsSource = user.DisplayTransactions();
             }
         }
 
@@ -54,9 +56,8 @@ namespace bankproject_GUI
             if (result == true)
             {
                 BalanceBox.Text = $"{user.Balance:C}";
+                TransactionList.ItemsSource = user.DisplayTransactions();
             }
-
-
         }
 
         private void TransferButton_Click(Object sender, RoutedEventArgs e)
@@ -67,20 +68,19 @@ namespace bankproject_GUI
             if (result == true)
             {
                 BalanceBox.Text = $"{user.Balance:C}";
+                TransactionList.ItemsSource = user.DisplayTransactions();
             }
         }
 
         
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)
         {
-            mainWindow.MainFrame.Navigate( new LoginPage(mainWindow, bank));
+            mainWindow.MainFrame.Navigate(new LoginPage(mainWindow, bank));
             bank.SaveXml("../../../../MyBank.xml");
             bank.accounts.Clear();
             bank.bankEmployees.Clear();
             bank.accountsForXML.Clear();
             bank.employeesForXML.Clear();
-
-
         }
 
 

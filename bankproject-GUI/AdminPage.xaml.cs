@@ -22,9 +22,15 @@ namespace bankproject_GUI
     
     public partial class AdminPage : Page
     {
+        #region GlobalVariables
         BankEmployee employee;
+
         MainWindow mainWindow;
+
         private Bank bank;
+        #endregion
+
+
         public AdminPage(MainWindow mainWindow, Bank bank)
         {
             InitializeComponent();
@@ -35,6 +41,7 @@ namespace bankproject_GUI
             
         }
 
+
         private void LogoutButton_Click(Object sender, RoutedEventArgs e)
         {
             mainWindow.MainFrame.Navigate(new LoginPage(mainWindow,bank));
@@ -44,17 +51,16 @@ namespace bankproject_GUI
             bank.accountsForXML.Clear();
             bank.employeesForXML.Clear();
 
+        } // Saving changes and going back to loginPage
 
-        }
-
-        private void SortButton_Click(Object sender, RoutedEventArgs e) // sth not working
+        private void SortButton_Click(Object sender, RoutedEventArgs e) // Sorting List of accounts on their balance
         {
             bank.Sort();
             AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
 
         }
 
-        private void AddAccountButton_Click(object sender, RoutedEventArgs e)
+        private void AddAccountButton_Click(object sender, RoutedEventArgs e) //Showing new window where we can add Account
         {
             AddAccountWindow addAccountWindow = new AddAccountWindow(bank);
             addAccountWindow.ShowDialog();
@@ -67,13 +73,11 @@ namespace bankproject_GUI
 
         private void RemoveAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            
             RemoveAccountWindow removeAccountWindow = new RemoveAccountWindow(bank);
             removeAccountWindow.ShowDialog();
 
-            
             AccountList.ItemsSource = new ObservableCollection<Account>(bank.accountsForXML);
-        }
+        } // Showing new window where we can Remove Account
 
         private void AddNewEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -93,14 +97,12 @@ namespace bankproject_GUI
                     }
                 }
             }
-        }
+        }   // Showing new window where we can Add Employee
 
         private void RemoveEmployeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            
+        { 
             RemoveEmployeeWindow removeEmployeeWindow = new RemoveEmployeeWindow(bank);
             removeEmployeeWindow.ShowDialog();
-
-        }
+        } // Showing new window where we can Remove Employee
     }
 }

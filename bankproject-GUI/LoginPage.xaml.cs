@@ -22,15 +22,20 @@ using System.Windows.Media.Animation;
 using WpfAnimatedGif;
 namespace bankproject_GUI
 {
-    /// <summary>
-    /// Logika interakcji dla klasy LoginPage.xaml
-    /// </summary>
+    
     public partial class LoginPage : Page
     {
+        #region GlobalVariables
         private MediaPlayer m_MediaPlayer;
+
         private MediaPlayer e_MediaPlayer;
+
         private MainWindow mainWindow;
+
         private Bank b1;
+        #endregion
+
+
         public LoginPage(MainWindow mainWindow, Bank bank)
         {
             m_MediaPlayer = new MediaPlayer();
@@ -62,10 +67,11 @@ namespace bankproject_GUI
             ImageBehavior.SetRepeatBehavior(LoadingGif, RepeatBehavior.Forever);
 
         }
+
         private void ShowLoadingGif(bool isVisible)
         {
             LoadingGif.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
-        }
+        } // showing and hiding GIF
        
         private void PlayClickSound()
         {
@@ -74,7 +80,8 @@ namespace bankproject_GUI
                 m_MediaPlayer.Position = TimeSpan.Zero;
                 m_MediaPlayer.Play();
             }
-        }
+        } // ClickSound
+
         private void PlayClickSound2()
         {
             if (e_MediaPlayer.Source != null)
@@ -82,14 +89,16 @@ namespace bankproject_GUI
                 e_MediaPlayer.Position = TimeSpan.Zero;
                 e_MediaPlayer.Play();
             }
-        }
+        } // ErrorSound 
+
         private async void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            b1.ReadXml("../../../../MyBank.xml");
+            b1.ReadXml("../../../../MyBank.xml"); // Reading file with save
+
+            string login = LoginTextBox.Text;
             string password = PasswordBox.Password;
-            
-            if(b1.FindEmployee(password) is not null)
+
+            if (b1.FindAccount(login, password) is not null) // searching for account (user)
             {
                 ShowLoadingGif(true);
 
@@ -97,21 +106,21 @@ namespace bankproject_GUI
                 ShowLoadingGif(false);
                 ImageBehavior.SetAutoStart(LoadingGif, false);
                 PlayClickSound();
-                mainWindow.MainFrame.Navigate(new AdminPage(mainWindow, b1));
-                mainWindow.LoggedInBankEmployee = b1.FindEmployee(password);
-            }
-            else if(b1.FindAccount(password) is not null)
-            {
-                ShowLoadingGif(true);
-
-                await Task.Delay(2000);
-                ShowLoadingGif(false);
-                ImageBehavior.SetAutoStart(LoadingGif, false);
-                PlayClickSound();
-                mainWindow.LoggedInUser = b1.FindAccount(password);
+                mainWindow.LoggedInUser = b1.FindAccount(login, password);
                 mainWindow.MainFrame.Navigate(new UserPage(mainWindow, b1));
             }
-            else
+           else if (b1.FindEmployee(login, password) is not null) // searching for account (admin)
+            {
+                ShowLoadingGif(true);
+                await Task.Delay(2000);
+                ShowLoadingGif(false);
+                ImageBehavior.SetAutoStart(LoadingGif, false);
+                PlayClickSound();
+
+                mainWindow.MainFrame.Navigate(new AdminPage(mainWindow, b1));
+                mainWindow.LoggedInBankEmployee = b1.FindEmployee(login, password);
+            }
+            else // if there is no admin or user 
             {
                 PlayClickSound2();
                 NoAccountWindow noAccountWindow = new NoAccountWindow();

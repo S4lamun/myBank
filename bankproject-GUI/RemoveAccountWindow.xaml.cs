@@ -18,6 +18,7 @@ namespace bankproject_GUI
 {
     public partial class RemoveAccountWindow : Window
     {
+
         private Bank bank;
 
         public RemoveAccountWindow(Bank bank)
@@ -37,18 +38,14 @@ namespace bankproject_GUI
                 return;
             }
 
-            
             Account accountToRemove = bank.accountsForXML.FirstOrDefault(a => a.Owner.Pesel == pesel && a.Password == password);
 
             if (accountToRemove != null)
             {
                 try
                 {
-                    
                     bank.RemoveAccount(accountToRemove);
                     MessageBox.Show("Account removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    
                     this.Close();
                 }
                 catch (Exception ex)
@@ -60,6 +57,6 @@ namespace bankproject_GUI
             {
                 MessageBox.Show("Account not found with the provided PESEL and password.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
+        } // Removing Account from the list
     }
 }

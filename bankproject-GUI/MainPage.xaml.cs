@@ -21,9 +21,14 @@ namespace bankproject_GUI
    
     public partial class MainPage : Page
     {
-        Bank b1 = new("myBank");
+        #region GlobalVariables
+        Bank b1 = new("myBank"); // Making a instance of Bank
+
         private MediaPlayer m_MediaPlayer;
+
         private MainWindow mainWindow;
+        #endregion
+
         public MainPage(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -42,6 +47,8 @@ namespace bankproject_GUI
                 MessageBox.Show("Nie znaleziono pliku dźwiękowego!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+
         private void PlayClickSound()
         {
             if (m_MediaPlayer.Source != null)
@@ -49,7 +56,7 @@ namespace bankproject_GUI
                 m_MediaPlayer.Position = TimeSpan.Zero; 
                 m_MediaPlayer.Play();
             }
-        }
+        } // Making a Sound to play
         
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -62,7 +69,9 @@ namespace bankproject_GUI
             }
             
             mainWindow.MainFrame.Navigate(new LoginPage(mainWindow, b1));
-        }
+        } // Opening Page where we can log in
+        
+        
         private void AboutUsButton_Click(Object sender, RoutedEventArgs e)
         {
             PlayClickSound();
@@ -71,17 +80,16 @@ namespace bankproject_GUI
             {
                 Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
             }
-            else
-            {
-                MessageBox.Show("Nie odnaleziono pliku!");
-            }
+            else MessageBox.Show("File wasn't found");
 
-        }
+        } // Showing README
+        
+        
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             PlayClickSound();
             Application.Current.Shutdown();
-        }
+        } // Shutting down whole App
 
     }
 }

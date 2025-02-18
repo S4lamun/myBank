@@ -1,39 +1,45 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.Metrics;
+using System.Text.RegularExpressions;
 
-//Password nie jest uzywany, probowalem jako dictionary zrobic, ale wtedy id moglo sie powtorzyc z innym haslem.
+
 namespace bankproject;
 
-public class BankEmployee : Person
+public class BankEmployee : Person // Class which represents BankEmployee (one of the admin which can make changes in account)
 {
-    private readonly string employeePassword;
-    static long employeeID;
+    #region Variables
+    string employeeID; // Employee's login  ID is FirstLetterOfName|FirstLetterOfSurrname/00/Counter
+    string employeePassword; // Employee's password
+    #endregion
 
 
-    public BankEmployee() { }
-    public BankEmployee(string name, string surname, string pesel, EnumSex sex, long employeeID,
-        string employeePassword) : base(name, surname, pesel, sex)
+    public BankEmployee() { } // Non-parametric contructor
+
+    public BankEmployee(string name, string surname, string pesel, EnumSex sex, string employeePassword) : base(name, surname, pesel, sex)
     {
-        EmployeeID = employeeID;
         EmployeePassword = employeePassword;
-    }
-
-    public string EmployeePassword
-    {
-        get => employeePassword;
-        init
-        {
-            if (!Regex.IsMatch(value, @"^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$"))
-                throw new WrongPasswordException("Password must have at least 1 capital letter, 1 digit, and be at least 6 characters long (no special characters).");
-            employeePassword = value;
-        }
-    }
-
-
-    public long EmployeeID { get; set; }
+        Counter++;
+        EmployeeID = $"{char.ToUpper(name[0])}{char.ToUpper(surname[0])}/00/{Counter}";
+    } // Parametric Contructor
 
     public override string ToString()
     {
 
         return base.ToString() + $", Employee ID: {EmployeeID}";
+    } // Displaying Employee data
+
+    #region Static
+    static int counter;
+    static BankEmployee()
+    {
+        Counter = 1;
     }
+
+    #endregion
+
+    #region Properties
+    public string EmployeeID { get => employeeID; set => employeeID = value; }
+    public string EmployeePassword { get => employeePassword; set => employeePassword = value; }
+    public static int Counter { get => counter; set => counter = value; }
+    #endregion
+
 }

@@ -17,6 +17,7 @@ namespace bankproject_GUI
 {
     public partial class RemoveEmployeeWindow : Window
     {
+
         private Bank bank;
 
         public RemoveEmployeeWindow(Bank bank)
@@ -24,6 +25,8 @@ namespace bankproject_GUI
             InitializeComponent();
             this.bank = bank;
         }
+
+
         private void EmployeeIDTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             EmployeeIDWatermark.Visibility = string.IsNullOrEmpty(EmployeeIDTextBox.Text) ? Visibility.Visible : Visibility.Hidden; //hidding watermark  
@@ -32,7 +35,7 @@ namespace bankproject_GUI
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {    
             PasswordWatermark.Visibility = string.IsNullOrEmpty(PasswordBox.Password) ? Visibility.Visible : Visibility.Hidden; //hidding watermark
-        }
+        } 
 
         private void RemoveEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -45,24 +48,14 @@ namespace bankproject_GUI
                 return;
             }
 
-            if (!long.TryParse(employeeIDText, out long employeeID))
-            {
-                MessageBox.Show("Invalid Employee ID!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            
-            BankEmployee employeeToRemove = bank.employeesForXML.FirstOrDefault(e => e.EmployeeID == employeeID && e.EmployeePassword == password);
+            BankEmployee employeeToRemove = bank.employeesForXML.FirstOrDefault(e => e.EmployeeID == employeeIDText && e.EmployeePassword == password);
 
             if (employeeToRemove != null)
             {
                 try
                 {
-                    
                     bank.RemoveEmployee(employeeToRemove);
                     MessageBox.Show("Employee removed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    
                     this.Close();
                 }
                 catch (Exception ex)
@@ -74,6 +67,6 @@ namespace bankproject_GUI
             {
                 MessageBox.Show("Employee not found with the provided ID and password.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
+        } // Removing Employee from the list
     }
 }

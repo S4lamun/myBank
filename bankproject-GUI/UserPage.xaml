@@ -54,21 +54,24 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="11,10,29,0" VerticalAlignment="Top">
 
             <Image Source="/8176383.png" Height="60" Width="60" />
-            <TextBlock Text="myBank" FontSize="30" FontWeight="Bold" Foreground="White" />
+            <TextBlock Text="myBank - Manage your account" FontSize="30" FontWeight="Bold" Foreground="White" Width="490"/>
 
         </StackPanel>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="34" Margin="49,84,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" IsReadOnly="True" FontSize="14" Foreground="Black"/>
         <TextBox x:Name="BalanceBox" HorizontalAlignment="Left" Height="34" Margin="49,133,0,0" TextWrapping="Wrap" Text="BalanceBox" VerticalAlignment="Top" Width="200" IsReadOnly="True" FontSize="14" Foreground="Black"/>
+        <TextBlock Text="Transation History" FontSize="24" FontWeight="Bold" Foreground="White" Width="490" Margin="254,0,56,220" Grid.Row="1" />
 
-        <Button x:Name="WithdrawButton" Content="Withdraw" HorizontalAlignment="Left" Height="81" Margin="87,112,0,0" VerticalAlignment="Top" Width="162" Click="WithdrawButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
-        <Button x:Name="DonateButton" Content="Deposit" HorizontalAlignment="Center" Height="81" Margin="0,112,0,0" VerticalAlignment="Top" Width="162" Click="DonateButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1" RenderTransformOrigin="0.639,0.305"/>
-        <Button x:Name="TransferButton" Content="Transfer" HorizontalAlignment="Right" Height="81" Margin="0,112,91,0" VerticalAlignment="Top" Width="162" Click="TransferButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
-        <Button x:Name="LogoutButton" Content="Logout and save" HorizontalAlignment="Center" Height="60" Margin="0,234,0,0" VerticalAlignment="Top" Width="132" Click="LogoutButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
+
+        <Button x:Name="WithdrawButton" Content="Withdraw" HorizontalAlignment="Left" Height="81" Margin="68,37,0,0" VerticalAlignment="Top" Width="162" Click="WithdrawButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
+        <Button x:Name="DonateButton" Content="Deposit" HorizontalAlignment="Left" Height="81" Margin="68,137,0,0" VerticalAlignment="Top" Width="162" Click="DonateButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1" RenderTransformOrigin="0.639,0.305"/>
+        <Button x:Name="TransferButton" Content="Transfer" HorizontalAlignment="Left" Height="81" Margin="68,237,570,0" VerticalAlignment="Top" Width="162" Click="TransferButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1" Cursor="Hand"/>
+        <Button x:Name="LogoutButton" Content="Logout and save" HorizontalAlignment="Left" Height="60" Margin="639,258,0,0" VerticalAlignment="Top" Width="132" Click="LogoutButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
         <Image HorizontalAlignment="Left" Height="37" Margin="7,84,0,0" VerticalAlignment="Top" Width="35" Source="/account.png"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="11,133,0,0" VerticalAlignment="Top" Width="35" Source="/money_Icon.png"/>
-        <TextBlock Text="Manage your account" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0,10,0,267" HorizontalAlignment="Center" Grid.Row="1" />
+
         <TextBlock Grid.Row="2" Text="© 2025 myBank"
            Foreground="White" FontSize="12"
            HorizontalAlignment="Center" Width="86"/>
+        <ListBox x:Name="TransactionList" HorizontalAlignment="Left" Height="216" Margin="249,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="522" d:ItemsSource="{d:SampleData ItemCount=5}"/>
     </Grid>
 </Page>

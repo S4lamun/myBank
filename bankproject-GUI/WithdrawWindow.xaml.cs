@@ -18,6 +18,7 @@ namespace bankproject_GUI
     
     public partial class WithdrawWindow : Window
     {
+
         private Account user;
 
         public WithdrawWindow(Account user)
@@ -41,9 +42,6 @@ namespace bankproject_GUI
                     user.Withdraw(withdrawAmount); 
                     BalanceTextBox.Text = $"{user.Balance:C}"; 
                     MessageBox.Show($"Successfully withdrew {withdrawAmount:C}.", "Transaction Successful", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
-                    
                     this.DialogResult = true;
                     this.Close(); 
                 }
@@ -56,13 +54,12 @@ namespace bankproject_GUI
             {
                 MessageBox.Show("Invalid amount. Please enter a valid number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
+        } // Withdrawing Amount from account
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            
             this.DialogResult = false;
-            this.Close(); 
-        }
+            this.Close();
+        } // Cancel function if Cancel clicked
     }
 }

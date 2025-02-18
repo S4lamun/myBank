@@ -18,20 +18,16 @@ namespace bankproject_GUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public Account? LoggedInUser { get; set; }
+        public Account? LoggedInUser { get; set; }
+
 		public BankEmployee? LoggedInBankEmployee { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            this.ResizeMode = ResizeMode.NoResize;
-            MainFrame.Navigate(new MainPage(this));
-
-
+            this.ResizeMode = ResizeMode.NoResize; //Disallow Windows to be resized
+            MainFrame.Navigate(new MainPage(this)); // navigating to mainPage
         }
 
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
     }
 }

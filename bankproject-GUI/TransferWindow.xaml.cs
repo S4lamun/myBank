@@ -7,8 +7,11 @@ namespace bankproject_GUI
     
     public partial class TransferWindow : Window
     {
+        #region GlobalVariables
         private Account user;
-        private Bank bank; 
+        private Bank bank;
+        #endregion
+
 
         public TransferWindow(Account user, Bank bank)
         {
@@ -23,37 +26,38 @@ namespace bankproject_GUI
         private void TransferButton_Click(object sender, RoutedEventArgs e)
         {
             string recipientAccountNumberString = RecipientAccountTextBox.Text;
-
             
             if (!long.TryParse(recipientAccountNumberString, out long recipientAccountNumber))
             {
                 MessageBox.Show("Invalid recipient account number. Please enter a valid number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
             if (user.AccountNumber == recipientAccountNumber)
             {
                 MessageBox.Show("You cannot transfer to yourself.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-                if (!decimal.TryParse(TransferAmountTextBox.Text, out decimal transferAmount))
+            if (!decimal.TryParse(TransferAmountTextBox.Text, out decimal transferAmount))
             {
                 MessageBox.Show("Invalid amount. Please enter a valid number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            
             if (transferAmount > user.Balance)
             {
                 MessageBox.Show($"The amount: {transferAmount:C} exceeds your balance.", "Transaction Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             if(transferAmount<=0)
             {
 
                 MessageBox.Show($"The amount is invalid", "Withdraw Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             try
             {
                 
@@ -64,17 +68,10 @@ namespace bankproject_GUI
                     MessageBox.Show($"The account number {recipientAccountNumber} is invalid.", "Transaction Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-
-                
+   
                 user.Transfer(recipientAccount, transferAmount);
-
-                
                 MessageBox.Show($"Successfully transferred {transferAmount:C} to account {recipientAccountNumber}.", "Transfer Successful", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                
                 BalanceTextBox.Text = $"{user.Balance:C}";
-
-                
                 this.DialogResult = true;
                 this.Close();
             }
@@ -86,13 +83,12 @@ namespace bankproject_GUI
             {
                 MessageBox.Show(ex.Message, "Transaction Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
+        } // Transfering Amount from account A to account B
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             this.Close();
-        }
+        } // Cancel function if Cancel clicked
     }
 }
