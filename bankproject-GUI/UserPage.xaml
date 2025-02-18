@@ -66,7 +66,7 @@
         <Button x:Name="DonateButton" Content="Deposit" HorizontalAlignment="Left" Height="81" Margin="68,137,0,0" VerticalAlignment="Top" Width="162" Click="DonateButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1" RenderTransformOrigin="0.639,0.305"/>
         <Button x:Name="TransferButton" Content="Transfer" HorizontalAlignment="Left" Height="81" Margin="68,237,570,0" VerticalAlignment="Top" Width="162" Click="TransferButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1" Cursor="Hand"/>
         <Button x:Name="LogoutButton" Content="Logout and save" HorizontalAlignment="Left" Height="60" Margin="639,258,0,0" VerticalAlignment="Top" Width="132" Click="LogoutButton_Click" Style="{StaticResource StyledButton}" Grid.Row="1"/>
-        <Image HorizontalAlignment="Left" Height="37" Margin="7,84,0,0" VerticalAlignment="Top" Width="35" Source="/account.png"/>
+        <Image HorizontalAlignment="Left" Height="37" Margin="7,84,0,0" VerticalAlignment="Top" Width="35" Source="/account_icon.png"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="11,133,0,0" VerticalAlignment="Top" Width="35" Source="/money_Icon.png"/>
 
         <TextBlock Grid.Row="2" Text="© 2025 myBank"

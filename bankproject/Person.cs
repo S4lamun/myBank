@@ -53,6 +53,6 @@ public abstract class Person:IEquatable<Person>
 
 public enum EnumSex
 {
-    K,
+    F,
     M
 }

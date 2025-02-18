@@ -4,7 +4,7 @@
     <Account>
       <transactions />
       <Password>HASELKO1</Password>
-      <AccountNumber>1</AccountNumber>
+      <AccountNumber>55853247959894812786253985</AccountNumber>
       <Balance>3</Balance>
       <Owner>
         <name>Marian</name>
@@ -17,11 +17,11 @@
     <Account>
       <transactions />
       <Password>HASELKO2</Password>
-      <AccountNumber>2</AccountNumber>
+      <AccountNumber>59793275849969925881071996</AccountNumber>
       <Balance>500</Balance>
       <Owner>
         <name>Maja</name>
-        <sex>K</sex>
+        <sex>F</sex>
         <surname>Ujoska</surname>
         <Pesel>62090196625</Pesel>
       </Owner>
@@ -30,11 +30,11 @@
     <Account>
       <transactions />
       <Password>HASELKO3</Password>
-      <AccountNumber>3</AccountNumber>
+      <AccountNumber>06668375235557684385347327</AccountNumber>
       <Balance>1500</Balance>
       <Owner>
         <name>Hania</name>
-        <sex>K</sex>
+        <sex>F</sex>
         <surname>Lewandowska</surname>
         <Pesel>70071374715</Pesel>
       </Owner>
@@ -47,7 +47,7 @@
       <sex>M</sex>
       <surname>Wolski</surname>
       <Pesel>07212551487</Pesel>
-      <EmployeeID>PW/00/2</EmployeeID>
+      <EmployeeID>PW/00/1</EmployeeID>
       <EmployeePassword>HasloPracownika1</EmployeePassword>
     </BankEmployee>
   </employeesForXML>

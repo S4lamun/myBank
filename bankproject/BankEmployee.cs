@@ -17,8 +17,8 @@ public class BankEmployee : Person // Class which represents BankEmployee (one o
     public BankEmployee(string name, string surname, string pesel, EnumSex sex, string employeePassword) : base(name, surname, pesel, sex)
     {
         EmployeePassword = employeePassword;
-        Counter++;
         EmployeeID = $"{char.ToUpper(name[0])}{char.ToUpper(surname[0])}/00/{Counter}";
+        Counter++;
     } // Parametric Contructor
 
     public override string ToString()

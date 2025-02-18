@@ -13,6 +13,7 @@ public class Account : IComparable<Account>
     private string password;
     private string login;
     public List<(DateTime, decimal, string)> transactions;
+    string bankAccountNumber;
     
     #endregion
 
@@ -25,10 +26,16 @@ public class Account : IComparable<Account>
         this.Owner = owner;
         Password = password;
         Balance = balance;
-        AccountNumber = BankAccountNumber;
-        BankAccountNumber++;
         Login = login;
         transactions = new();
+
+        //digit drawing for AccountNumber
+        Random r = new Random();
+        AccountNumber = string.Empty;
+        for (int i = 0;i < 26;i++ )
+        {
+            AccountNumber = AccountNumber + r.Next(0, 10);
+        }
     } // Parametric contructor
 
 
@@ -79,16 +86,11 @@ public class Account : IComparable<Account>
 
     public override string ToString()
     {
-        return $"{Owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber:D19}";
+        return $"{Owner}, Balance: {Balance:C}, Bank Account Number: {AccountNumber.Substring(0,2)} {AccountNumber.Substring(2,4)} {AccountNumber.Substring(6,4)} {AccountNumber.Substring(10,4)}" +
+            $"{AccountNumber.Substring(14, 4)} {AccountNumber.Substring(18, 4)} {AccountNumber.Substring(22, 4)}";
     } // Displaying Account data
 
-    #region Static 
-    private static long bankAccountNumber;
-    static Account()
-    {
-        BankAccountNumber = 0000000000000000001;
-    }
-    #endregion
+   
 
 
     #region Properties
@@ -104,10 +106,9 @@ public class Account : IComparable<Account>
             password = value;
         }
     }
-    public long AccountNumber { get; init; } // AccountNumber can be only set in Classs
+    public string AccountNumber { get; init; } // AccountNumber can be only set in Classs
     public decimal Balance { get; set; }
     public BankCustomer Owner { get; set; }
-    public static long BankAccountNumber { get => bankAccountNumber; set => bankAccountNumber = value; }
     public string Login { get => login; set => login = value; }
 
     #endregion

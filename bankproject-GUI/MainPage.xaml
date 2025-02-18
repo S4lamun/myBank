@@ -58,7 +58,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,20">
-            <Image Source="/8176383.png" Height="80" Width="80" />
+            <Image Source="/logo.png" Height="80" Width="80" />
             <TextBlock Text="myBank" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
         </StackPanel>
 

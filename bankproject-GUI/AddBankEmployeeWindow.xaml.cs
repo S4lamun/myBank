@@ -42,7 +42,7 @@ namespace bankproject_GUI
                     return;
                 }
 
-                EnumSex sex = (SexComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString() == "M" ? EnumSex.M : EnumSex.K;
+                EnumSex sex = (SexComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString() == "M" ? EnumSex.M : EnumSex.F;
                 string password = PasswordBox.Password.Trim();
 
                 if (bank.employeesForXML.Find(t => t.EmployeePassword == password) != null || bank.accountsForXML.Find(t => t.Password == password) != null)

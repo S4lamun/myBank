@@ -10,7 +10,7 @@ namespace bankproject;
 public class Bank : IBank //Class bank represents Admin site and it's aggregaretion class
 {
     #region Variables
-    [XmlIgnore] public  Dictionary<long, Account> accounts; 
+    [XmlIgnore] public  Dictionary<string, Account> accounts; 
 
     [XmlIgnore] public  Dictionary<string, BankEmployee> bankEmployees;
 
@@ -35,7 +35,7 @@ public class Bank : IBank //Class bank represents Admin site and it's aggregaret
 
         bankEmployees = new Dictionary<string, BankEmployee>();
 
-        accounts = new Dictionary<long, Account>();
+        accounts = new Dictionary<string, Account>();
     }  // Parametric constructor
 
 
@@ -66,7 +66,6 @@ public class Bank : IBank //Class bank represents Admin site and it's aggregaret
 
         if (accounts.Count > 0)
         {
-            Account.BankAccountNumber = accounts.Keys.Max() + 1;
             BankEmployee.Counter = bankEmployees.Count() + 1;
         }
         
@@ -82,8 +81,8 @@ public class Bank : IBank //Class bank represents Admin site and it's aggregaret
         BankEmployee employee1 = new("Peter", "Wolski", "07212551487", EnumSex.M, "HasloPracownika1");
 
         BankCustomer customer1 = new("Marian", "Warzecha", "68092074132", EnumSex.M);
-        BankCustomer customer2 = new("Maja", "Ujoska", "62090196625", EnumSex.K);
-        BankCustomer customer3 = new("Hania", "Lewandowska", "70071374715", EnumSex.K);
+        BankCustomer customer2 = new("Maja", "Ujoska", "62090196625", EnumSex.F);
+        BankCustomer customer3 = new("Hania", "Lewandowska", "70071374715", EnumSex.F);
 
 
         Account a1 = new(customer1, "HASELKO1", 3m, "fajny");
@@ -280,7 +279,7 @@ public class Bank : IBank //Class bank represents Admin site and it's aggregaret
         return sb.ToString();
     }  //DISPLAYING ALL ACCOUNTS FROM THE BANK
 
-    public Account FindAccount(long accountNumber)
+    public Account FindAccount(string accountNumber)
     {
         if (accounts.ContainsKey(accountNumber)) return accounts[accountNumber];
 

@@ -25,9 +25,9 @@ namespace bankproject_GUI
 
         private void TransferButton_Click(object sender, RoutedEventArgs e)
         {
-            string recipientAccountNumberString = RecipientAccountTextBox.Text;
+            string recipientAccountNumber = RecipientAccountTextBox.Text.Trim();
             
-            if (!long.TryParse(recipientAccountNumberString, out long recipientAccountNumber))
+            if (recipientAccountNumber.Length!=26)
             {
                 MessageBox.Show("Invalid recipient account number. Please enter a valid number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;

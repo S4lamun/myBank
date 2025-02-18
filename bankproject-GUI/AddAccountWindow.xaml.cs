@@ -45,7 +45,7 @@ namespace bankproject_GUI
                 }
 
                 var selectedSexItem = SexComboBox.SelectedItem as ComboBoxItem;
-                EnumSex sex = selectedSexItem?.Tag?.ToString() == "M" ? EnumSex.M : EnumSex.K;
+                EnumSex sex = selectedSexItem?.Tag?.ToString() == "M" ? EnumSex.M : EnumSex.F;
 
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
                     string.IsNullOrEmpty(pesel) || SexComboBox.SelectedItem == null)

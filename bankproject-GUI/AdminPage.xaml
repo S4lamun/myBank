@@ -52,7 +52,8 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="20" VerticalAlignment="Top">
             <Image Source="/8176383.png" Height="60" Width="60" Margin="0,0,10,0" />
-            <TextBlock Text="myBank" FontSize="30" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+            <Image Height="97" Source="/Logo.png" Stretch="Fill" Width="132"/>
+            <TextBlock Text="myBank" FontSize="30" FontWeight="Bold" Foreground="White" Height="58" Margin="150, 20, 0 ,0" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
@@ -69,6 +70,6 @@
         </StackPanel>
 
         <Button Content="Logout and Save" Click="LogoutButton_Click" Style="{StaticResource StyledButton}" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10,0,10" />
-        
+
     </Grid>
 </Page>
