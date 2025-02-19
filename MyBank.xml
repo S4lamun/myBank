@@ -2,54 +2,190 @@
 <Bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <accountsForXML>
     <Account>
-      <transactions />
-      <Password>HASELKO1</Password>
-      <AccountNumber>55853247959894812786253985</AccountNumber>
-      <Balance>3</Balance>
+      <transactions>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:47:37.4609551+01:00</Item1>
+          <Item2>-154</Item2>
+          <Item3>Withdraw</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:47:43.9742656+01:00</Item1>
+          <Item2>512</Item2>
+          <Item3>Deposit</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:02.712793+01:00</Item1>
+          <Item2>-30</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:13.015945+01:00</Item1>
+          <Item2>-50</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:42.8243312+01:00</Item1>
+          <Item2>44</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:49:56.5414897+01:00</Item1>
+          <Item2>250</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:50:52.8569855+01:00</Item1>
+          <Item2>500</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+      </transactions>
+      <periodicTransfers>
+        <PeriodicTransfer>
+          <Amount>50</Amount>
+          <NextTransfer>2025-03-22T00:09:25.6898863+01:00</NextTransfer>
+          <Interval>30</Interval>
+        </PeriodicTransfer>
+      </periodicTransfers>
+      <Password>3u1wyE</Password>
+      <AccountNumber>82868639916585213741413518</AccountNumber>
+      <Balance>2302</Balance>
       <Owner>
-        <name>Marian</name>
+        <name>James</name>
         <sex>M</sex>
-        <surname>Warzecha</surname>
-        <Pesel>68092074132</Pesel>
+        <surname>Miller</surname>
+        <Pesel>28015137176</Pesel>
       </Owner>
-      <Login>fajny</Login>
+      <Login>james.miller54</Login>
     </Account>
     <Account>
-      <transactions />
-      <Password>HASELKO2</Password>
-      <AccountNumber>59793275849969925881071996</AccountNumber>
-      <Balance>500</Balance>
+      <transactions>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:02.7128002+01:00</Item1>
+          <Item2>30</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:42.8243258+01:00</Item1>
+          <Item2>-44</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:54.8242146+01:00</Item1>
+          <Item2>-150</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:49:00.2015175+01:00</Item1>
+          <Item2>500</Item2>
+          <Item3>Deposit</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+      </transactions>
+      <periodicTransfers>
+        <PeriodicTransfer>
+          <Amount>125</Amount>
+          <NextTransfer>2025-05-21T00:13:17.1853267+02:00</NextTransfer>
+          <Interval>90</Interval>
+        </PeriodicTransfer>
+      </periodicTransfers>
+      <Password>Cy9Dpi</Password>
+      <AccountNumber>00946154238682281540233151</AccountNumber>
+      <Balance>648</Balance>
       <Owner>
-        <name>Maja</name>
+        <name>Jennifer</name>
         <sex>F</sex>
-        <surname>Ujoska</surname>
-        <Pesel>62090196625</Pesel>
+        <surname>Garcia</surname>
+        <Pesel>65633387554</Pesel>
       </Owner>
-      <Login>fajny1</Login>
+      <Login>jennifer.garcia56</Login>
     </Account>
     <Account>
-      <transactions />
-      <Password>HASELKO3</Password>
-      <AccountNumber>06668375235557684385347327</AccountNumber>
-      <Balance>1500</Balance>
+      <transactions>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:13.0159529+01:00</Item1>
+          <Item2>50</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:49:44.365585+01:00</Item1>
+          <Item2>300</Item2>
+          <Item3>Deposit</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:49:56.5414852+01:00</Item1>
+          <Item2>-250</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:50:41.6345651+01:00</Item1>
+          <Item2>500</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+      </transactions>
+      <periodicTransfers />
+      <Password>k9Yc9y</Password>
+      <AccountNumber>89780030739378387719227629</AccountNumber>
+      <Balance>1012</Balance>
       <Owner>
-        <name>Hania</name>
-        <sex>F</sex>
-        <surname>Lewandowska</surname>
-        <Pesel>70071374715</Pesel>
+        <name>James</name>
+        <sex>M</sex>
+        <surname>Johnson</surname>
+        <Pesel>60713854637</Pesel>
       </Owner>
-      <Login>fajny</Login>
+      <Login>james.johnson68</Login>
+    </Account>
+    <Account>
+      <transactions>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:48:54.8242187+01:00</Item1>
+          <Item2>150</Item2>
+          <Item3>Incoming transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:50:26.1234644+01:00</Item1>
+          <Item2>600</Item2>
+          <Item3>Deposit</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:50:41.634562+01:00</Item1>
+          <Item2>-500</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+        <ValueTupleOfDateTimeDecimalString>
+          <Item1>2025-02-19T23:50:52.8569814+01:00</Item1>
+          <Item2>-500</Item2>
+          <Item3>Outgoing transfer</Item3>
+        </ValueTupleOfDateTimeDecimalString>
+      </transactions>
+      <periodicTransfers />
+      <Password>9S2L1s</Password>
+      <AccountNumber>36330086282354006476762321</AccountNumber>
+      <Balance>8215</Balance>
+      <Owner>
+        <name>Mary</name>
+        <sex>F</sex>
+        <surname>Williams</surname>
+        <Pesel>72382996528</Pesel>
+      </Owner>
+      <Login>mary.williams97</Login>
     </Account>
   </accountsForXML>
   <employeesForXML>
     <BankEmployee>
-      <name>Peter</name>
+      <name>Michael</name>
       <sex>M</sex>
-      <surname>Wolski</surname>
-      <Pesel>07212551487</Pesel>
-      <EmployeeID>PW/00/1</EmployeeID>
-      <EmployeePassword>HasloPracownika1</EmployeePassword>
+      <surname>Jones</surname>
+      <Pesel>13764242587</Pesel>
+      <EmployeeID>MJ/00/2</EmployeeID>
+      <EmployeePassword>0KRjZj</EmployeePassword>
+    </BankEmployee>
+    <BankEmployee>
+      <name>Patricia</name>
+      <sex>F</sex>
+      <surname>Davis</surname>
+      <Pesel>95480383379</Pesel>
+      <EmployeeID>PD/00/3</EmployeeID>
+      <EmployeePassword>m4fLTe</EmployeePassword>
     </BankEmployee>
   </employeesForXML>
-  <name>MyBank</name>
+  <name>myBank</name>
 </Bank>

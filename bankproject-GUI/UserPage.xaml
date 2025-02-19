@@ -53,7 +53,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="11,10,29,0" VerticalAlignment="Top">
 
-            <Image Source="/8176383.png" Height="60" Width="60" />
+            <Image Source="/logo.png" Height="60" Width="60" />
             <TextBlock Text="myBank - Manage your account" FontSize="30" FontWeight="Bold" Foreground="White" Width="490"/>
 
         </StackPanel>
@@ -73,5 +73,6 @@
            Foreground="White" FontSize="12"
            HorizontalAlignment="Center" Width="86"/>
         <ListBox x:Name="TransactionList" HorizontalAlignment="Left" Height="216" Margin="249,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="522" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="PeriodicButton" Content="Ckeck your Periodic Transfers" HorizontalAlignment="Left" Height="81" Margin="543,81,0,0" VerticalAlignment="Top" Width="214" Style="{StaticResource StyledButton}" Click="PeriodicButton_Click"/>
     </Grid>
 </Page>

@@ -14,7 +14,7 @@ public class Account : IComparable<Account>
     private string login;
     public List<(DateTime, decimal, string)> transactions;
     string bankAccountNumber;
-    
+    public List<PeriodicTransfer> periodicTransfers;
     #endregion
 
 
@@ -36,6 +36,8 @@ public class Account : IComparable<Account>
         {
             AccountNumber = AccountNumber + r.Next(0, 10);
         }
+
+        periodicTransfers = new();
     } // Parametric contructor
 
 
@@ -82,6 +84,31 @@ public class Account : IComparable<Account>
         Balance -= amount;
         transactions.Add((DateTime.Now, -amount, "Withdraw"));
     } // Making a withdraw from account 
+
+    public void AddPeriodicTransfer(Account destinationAccount, decimal amount, int interval)
+    {
+
+        PeriodicTransfer p1 = new(this, destinationAccount, amount, interval);
+        periodicTransfers.Add(p1);
+    }
+
+    public void RemovePeriodicTransfer(Account destinationAccount, decimal amount, int interval)
+    {
+        var p1 = periodicTransfers.FirstOrDefault(t => t.SourceAccount == this && t.DestinationAccount == destinationAccount && t.Amount == amount && t.Interval == interval);
+        if (p1 != null)
+        {
+            periodicTransfers.Remove(p1);
+        }
+    }
+
+    public void ExecuteAllPeriodicTransfers()
+    {
+        foreach (var a in periodicTransfers)
+        {
+            a.ExecuteTransfer();
+            
+        }
+    } // executing all PeriodicTransfers 
 
 
     public override string ToString()

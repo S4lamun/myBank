@@ -81,16 +81,20 @@ namespace bankproject_GUI
             bank.bankEmployees.Clear();
             bank.accountsForXML.Clear();
             bank.employeesForXML.Clear();
+            user.periodicTransfers.Clear();
+            user.transactions.Clear();
         }
 
+        private void PeriodicButton_Click(object sender, RoutedEventArgs e)
+        {
+            PeriodicTransferWindows periodicTransferWindows = new PeriodicTransferWindows(mainWindow, bank);
+            bool? result = periodicTransferWindows.ShowDialog();
 
-
-
-
-
-
-
-
+            if (result == true)
+            {
+                BalanceBox.Text = $"{user.Balance:C}";
+            }
+        }
     }
 }
 

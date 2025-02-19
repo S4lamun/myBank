@@ -45,11 +45,6 @@ namespace bankproject_GUI
                 EnumSex sex = (SexComboBox.SelectedItem as ComboBoxItem)?.Tag.ToString() == "M" ? EnumSex.M : EnumSex.F;
                 string password = PasswordBox.Password.Trim();
 
-                if (bank.employeesForXML.Find(t => t.EmployeePassword == password) != null || bank.accountsForXML.Find(t => t.Password == password) != null)
-                {
-                    MessageBox.Show($"Account with this password already exists!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
 
                 if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(pesel) || string.IsNullOrWhiteSpace(password))
                 {
@@ -61,6 +56,7 @@ namespace bankproject_GUI
                 MessageBox.Show($"Your ID (your login) is: {NewEmployee.EmployeeID}", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
                 DialogResult = true;
                 Close();
+
             }
             catch (WrongPasswordException ex)
             {

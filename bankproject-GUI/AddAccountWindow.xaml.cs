@@ -58,9 +58,9 @@ namespace bankproject_GUI
                 string login = LoginTextBox.Text;
                 string password = PasswordBox.Password;
 
-                if (bank.accountsForXML.Find(t => t.Password == password) != null || bank.employeesForXML.Find(t=>t.EmployeePassword==password)!=null)
+                if (bank.accountsForXML.Find(t => t.Login == login) != null )
                 {
-                    MessageBox.Show("Account with this password already exists!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Account with this login already exists!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
