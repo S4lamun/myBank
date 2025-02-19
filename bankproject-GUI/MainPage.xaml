@@ -64,7 +64,7 @@
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Content="Login" Click="LoginButton_Click" Style="{StaticResource StyledButton}" />
-            <Button Content="About Us" Click="AboutUsButton_Click" Style="{StaticResource StyledButton}" />
+            <Button Content="About" Click="AboutButton_Click" Style="{StaticResource StyledButton}" />
             <Button Content="Exit" Click="ExitButton_Click" Style="{StaticResource StyledButton}" Width="180"/>
         </StackPanel>
 

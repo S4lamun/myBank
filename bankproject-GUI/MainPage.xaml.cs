@@ -72,15 +72,11 @@ namespace bankproject_GUI
         } // Opening Page where we can log in
         
         
-        private void AboutUsButton_Click(Object sender, RoutedEventArgs e)
+        private void AboutButton_Click(Object sender, RoutedEventArgs e)
         {
             PlayClickSound();
-            string filePath = System.IO.Path.GetFullPath(@"..\..\..\..\sprawozdanie.pdf");
-            if (File.Exists(filePath))
-            {
-                Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
-            }
-            else MessageBox.Show("File wasn't found");
+
+            mainWindow.MainFrame.Navigate(new AboutPage());
 
         } // Showing README
         
