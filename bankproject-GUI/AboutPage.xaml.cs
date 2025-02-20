@@ -8,19 +8,30 @@ namespace bankproject_GUI
         public AboutPage()
         {
             InitializeComponent();
-            Text1Block.Text = "Project is a simple simulation of a bank. You can log in as Admin or a Typical User.\nAs a Typical User, you can:\nCheck your Name and Balance\nWithdraw, " +
-                "Transfer, and Deposit money\nMake Periodic Transfers\nCheck Transaction History\n\nAs an Admin, you can manage Accounts:\nAdd new Account\nRemove Account\nAdd Employee\nRemove Employee";
+            Text1Block.Text = "💰 **About the Project**\nThis project is a simple bank simulation. You can log in as an **Administrator** or a **Regular User**.\n\n"
+                            + "🧑‍💼 **As a User, you can:**\n"
+                            + "- Check your name and balance\n"
+                            + "- Withdraw, transfer, and deposit money\n"
+                            + "- Set up periodic transfers\n"
+                            + "- View transaction history\n\n"
+                            + "👨‍💻 **As an Administrator, you can manage accounts:**\n"
+                            + "- Add new accounts\n"
+                            + "- Remove accounts\n"
+                            + "- Add employees\n"
+                            + "- Remove employees";
 
-            Text2Block.Text = "Account Numbers are generated randomly with 26 digits combined as a string.\nBank Employee IDs are generated automatically (it’s the admin's login).\nUser Logins must be unique.";
+            Text2Block.Text = "🔢 **Account Numbers & Identifiers**\n"
+                            + "- Account numbers are randomly generated (26 characters).\n"
+                            + "- Employee IDs are generated automatically.\n"
+                            + "- User logins must be unique.";
 
-            Text3Block.Text = "Login Data: [Login Password] (1 for admin and 1 for user)\n" +
-                              "              [james.miller54 3u1wyE] - user\n" +
-                              "              [mary.williams97 9S2L1s] - admin";
+            Text3Block.Text = "🔐 **Login Credentials**\n"
+                            + "- **User:** `james.miller54` | **Password:** `3u1wyE`\n"
+                            + "- **Admin:** `mary.williams97` | **Password:** `9S2L1s`";
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logic to navigate back to the previous page
             NavigationService.GoBack();
         }
     }
